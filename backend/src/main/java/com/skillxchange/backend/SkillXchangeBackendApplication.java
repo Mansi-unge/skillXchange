@@ -8,7 +8,7 @@ public class SkillXchangeBackendApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SkillXchangeBackendApplication.class, args);
-		System.out.println("SkillXchange Applicaton is Started");
+		System.out.println("SkillXchange Application is Started");
 	}
 
 }
