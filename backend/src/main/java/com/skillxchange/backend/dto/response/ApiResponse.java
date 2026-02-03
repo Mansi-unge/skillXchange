@@ -1,11 +1,14 @@
 package com.skillxchange.backend.dto.response;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Getter
+@Data
 @AllArgsConstructor
-public class SignupResponse {
+@NoArgsConstructor
+public class ApiResponse {
+
     private  boolean success;
-    private String message;
+    private  String message;
 }

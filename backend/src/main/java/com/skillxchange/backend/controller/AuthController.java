@@ -1,9 +1,9 @@
 package com.skillxchange.backend.controller;
 
-import com.skillxchange.backend.dto.request.LoginRequest;
+import com.skillxchange.backend.dto.request.*;
+import com.skillxchange.backend.dto.response.ApiResponse;
 import com.skillxchange.backend.dto.response.LoginResponse;
 import com.skillxchange.backend.dto.response.SignupResponse;
-import com.skillxchange.backend.dto.request.SignupRequest;
 import com.skillxchange.backend.service.AuthService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -33,6 +33,29 @@ public class AuthController {
             @Valid @RequestBody LoginRequest request) {
 
         LoginResponse response = authService.login(request);
+        return ResponseEntity.ok(response);
+    }
+
+    @PostMapping("/forgot-password")
+    public  ResponseEntity<ApiResponse> forgotPassword(@RequestBody ForgotPasswordRequest request){
+        ApiResponse response = authService.sendOtp(request);
+
+        return  ResponseEntity.ok(response);
+    }
+
+    @PostMapping("/verify-otp")
+    public ResponseEntity<ApiResponse> verifyOtp(
+            @RequestBody VerifyOtpRequest request) {
+
+        ApiResponse response = authService.verifyOtp(request);
+        return ResponseEntity.ok(response);
+    }
+
+    @PostMapping("/reset-password")
+    public ResponseEntity<ApiResponse> resetPassword(
+            @RequestBody ResetPasswordRequest request) {
+
+        ApiResponse response = authService.resetPassword(request);
         return ResponseEntity.ok(response);
     }
 }

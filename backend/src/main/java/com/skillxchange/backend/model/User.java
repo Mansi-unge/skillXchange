@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Data
 @Table(name = "users")
@@ -29,4 +31,11 @@ public class User {
 
     @Column(nullable = false)
     private boolean active = true;
+
+    // Forgot Password OTP
+    @Column(nullable = true)
+    private String resetOtp;
+
+    @Column(nullable = true)
+    private LocalDateTime otpExpiry;
 }
